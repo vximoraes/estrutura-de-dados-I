@@ -6,6 +6,7 @@ Deve fazer em um único arquivo, separado com funções para cada problema,
 não é para enviar separado.
 
 # NÚMEROS ALEATÓRIOS 
+
 Crie uma função que produza uma lista (array) com números aleatórios,
 deve receber um argumento com a quantidade de elementos a serem produzidos
 e o intervalo no qual deseja obter os valores, e retornar a lista com os valores 
@@ -25,7 +26,8 @@ menor elemento e qual a média dos valores do vetor.
 Por exemplo, na lista [2,4,3] o menor é 2, maior é 3 e a média é 3.0
 Já na lista [10,3,5,7,8,2,3,1] o menor é 1, o maior é 10 e a média 4.875
 
-------------------------- PICO --------------------------------------
+# PICO 
+
 Receba do usuário um número e utilizando a função de gerar números aleatórios 
 produza uma lista do tamanho informado com valores no intervalo entre 0 e 100.
 
