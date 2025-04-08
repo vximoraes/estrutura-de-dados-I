@@ -37,4 +37,4 @@ for (let element of splittedExpression) {
     }
 }
 
-console.log(`Resultado: ${stack}`);
+console.log(`Resultado: ${stack}`)
