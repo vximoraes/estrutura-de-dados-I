@@ -11,12 +11,8 @@ for (let element of splittedExpression) {
         let operator = element
         let result: number = 0
 
-        let a = stack.pop()
-        let b = stack.pop()
-
-        if (a == undefined || b == undefined) {
-            throw new Error("erro")
-        }
+        let a = stack.pop()!
+        let b = stack.pop()!
 
         switch (operator) {
             case "+":
