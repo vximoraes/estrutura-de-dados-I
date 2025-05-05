@@ -29,6 +29,7 @@ export class Deque<T> {
         if (this.isFull()) {
             throw new Error("Deque está cheio! Não é possível inserir:");
         }
+        
         this.inicio = this.decrementar(this.inicio);
         this.arr[this.inicio] = item;
 
