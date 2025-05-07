@@ -30,97 +30,75 @@ export class Deque<T> {
     }
 
     addfirst(item: T) {
-        if (this.isFull()) {
-            throw new Error("Deque está cheio! Não é possível inserir:");
-        }
+        if (this.isFull()) throw new Error("Deque cheio!");
     
         this.arr[this.inicio] = item;
-
         this.inicio = this.decrementar(this.inicio);
-        
         this.tamanho++;
     
         console.log("Inserido(início):", item);
     }
 
     addLast(item: T) {
-        if(this.isFull()) {
-            throw new Error("Deque está cheio! Não é possível inserir:");
-        }
+        if(this.isFull()) throw new Error("Deque cheio!");
 
         this.fim = this.incrementar(this.fim);
-        
         this.arr[this.fim] = item;
-
         this.tamanho++;
 
         console.log("Inserido(final):", item);
     }
 
     removeFirst(): T {
-        if (this.isEmpty()) {
-            throw new Error("Deque está vazio!");
-        }
-        const removido = this.arr[this.inicio];
-
+        if (this.isEmpty()) throw new Error("Deque vazio!");
+    
+        const item = this.arr[this.inicio] as T;     
+        this.inicio = this.incrementar(this.inicio); 
         this.arr[this.inicio] = null;
-
-        this.inicio = this.incrementar(this.inicio);
         this.tamanho--;
-
-        if (this.tamanho === 0) {
-            this.inicio = 0;
-            this.fim = 0;
-        }
-        console.log("Removido(início):", removido);
-        return removido as T;
+    
+        return item;
     }
-
+    
     removeLast(): T {
-        if (this.isEmpty()) {
-            throw new Error("Deque está vazio!");
-        }
+        if (this.isEmpty()) throw new Error("Deque vazio!");
 
-        this.fim = this.decrementar(this.fim);
-        const removido = this.arr[this.fim];
+        const item = this.arr[this.fim] as T;      
         this.arr[this.fim] = null;
+        this.fim = this.decrementar(this.fim);  
         this.tamanho--;
-
-        if (this.tamanho === 0) {
-            this.inicio = 0;
-            this.fim = 0;
-        }
-        console.log("Removido(final):", removido);
-        return removido as T;
+    
+        return item;
     }
 
-    // -------------------------------------------------------
+    peekFirst(): T {
+        if (this.isEmpty()) throw new Error("Deque vazio!");
 
-    enqueue(valor: T) {
-        if (this.isFull()) {
-            console.log("Erro: Deque está cheio! Não é possível inserir:", valor);
-            return;
+        this.inicio = this.incrementar(this.inicio); 
+        const primeiro = this.arr[this.inicio] as T;
 
-        }
-        this.arr[this.fim] = valor;
-        this.fim = this.incrementar(this.fim);
+        console.log(primeiro);
 
-        this.tamanho++;
+        return primeiro;
     }
 
-    dequeue(): T | null {
-        if (this.tamanho === 0) {
-            throw new Error("Fila Vazia!");
-        }
+    peekLast(): T {
+        if (this.isEmpty()) throw new Error("Deque vazio!");
+        
+        const ultimo = this.arr[this.fim] as T;
 
-        const pos = this.inicio;
-        this.inicio = this.incrementar(this.inicio);
+        console.log(ultimo);
+        
+        return ultimo;
+    }
 
-        const temp = this.arr[pos];
-        this.arr[pos] = null;
+    size(): number {
+        console.log(this.tamanho);
+        return this.tamanho;
+    }
 
-        this.tamanho--;
-
-        return temp;
+    capacity(): number {
+        console.log(this.capacidade);
+        return this.capacidade;
     }
 }
