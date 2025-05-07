@@ -7,8 +7,8 @@ deque.addLast("B");
 deque.addLast("C");
 deque.addLast("D");
 deque.addLast("E");
-deque.addLast("F");  // Removido (último)
-deque.addfirst("G"); // Removido (primeiro)
+deque.addLast("F");  
+deque.addfirst("G");
 
 deque.removeFirst(); 
 deque.removeLast(); 
