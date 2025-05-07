@@ -2,17 +2,21 @@ import { Deque } from "./Deque";
 
 const deque = new Deque(7);
 
-deque.addLast("A");
+deque.addfirst("A");
 deque.addLast("B");
-deque.addfirst("C");
-deque.addfirst("D");
-deque.addfirst("E");
-deque.addfirst("F");
-deque.addfirst("G");
+deque.addLast("C");
+deque.addLast("D");
+deque.addLast("E");
+deque.addLast("F");  // Removido (último)
+deque.addfirst("G"); // Removido (primeiro)
 
-deque.removeLast(); // Remove "B"
-deque.removeLast(); // Remove "A"
-deque.removeLast(); // Remove "C"
-deque.removeFirst(); // Remove "G"
+deque.removeFirst(); 
+deque.removeLast(); 
 
 console.log(deque);
+
+deque.peekFirst();
+deque.peekLast();
+
+deque.size();
+deque.capacity();
