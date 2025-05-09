@@ -3,12 +3,14 @@ import { Deque } from "./Deque";
 const deque = new Deque(7);
 
 deque.addfirst("A");
-deque.addLast("B");
+deque.addfirst("B");
 deque.addLast("C");
 deque.addLast("D");
-deque.addLast("E");
+deque.addfirst("E");
 deque.addLast("F");  
 deque.addfirst("G");
+
+console.log(deque);
 
 deque.removeFirst(); 
 deque.removeLast(); 
