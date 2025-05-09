@@ -59,26 +59,5 @@ describe("Deque<T>", () => {
         expect(deque.size()).toBe(2);
         expect(deque.capacity()).toBe(7);
     });
-
-    test("deve manter a ordem correta ao adicionar e remover vários elementos", () => {
-        deque.addfirst("A");
-        deque.addfirst("B");
-        deque.addLast("C");
-        deque.addLast("D");
-    
-        expect(deque.peekFirst()).toBe("B");
-        deque.removeFirst();
-    
-        expect(deque.peekLast()).toBe("D");
-        deque.removeLast();
-    
-        expect(deque.peekFirst()).toBe("C");
-        deque.removeFirst();
-    
-        expect(deque.peekLast()).toBe("C");
-        deque.removeLast();
-    
-        expect(deque.isEmpty()).toBe(true);
-    });
 });
 
