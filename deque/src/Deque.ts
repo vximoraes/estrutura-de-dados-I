@@ -1,3 +1,7 @@
+// Vinícius Almeida Moraes
+// ADS 2024/3
+// Estrutura de Dados I
+
 export class Deque<T> {
     capacidade: number;
     inicio: number;
@@ -32,6 +36,10 @@ export class Deque<T> {
     addfirst(item: T) {
         if (this.isFull()) throw new Error("Deque cheio!");
     
+        if (this.inicio == this.fim) {
+            this.fim = this.incrementar(this.fim);
+        }
+
         this.arr[this.inicio] = item;
         this.inicio = this.decrementar(this.inicio);
         this.tamanho++;
@@ -42,8 +50,8 @@ export class Deque<T> {
     addLast(item: T) {
         if(this.isFull()) throw new Error("Deque cheio!");
 
-        this.fim = this.incrementar(this.fim);
         this.arr[this.fim] = item;
+        this.fim = this.incrementar(this.fim);
         this.tamanho++;
 
         console.log("Inserido(final):", item);
@@ -52,6 +60,10 @@ export class Deque<T> {
     removeFirst(): T {
         if (this.isEmpty()) throw new Error("Deque vazio!");
     
+        if (this.capacidade == this.tamanho) {
+            this.fim = this.decrementar(this.fim)
+        }
+
         const item = this.arr[this.inicio] as T;     
         this.inicio = this.incrementar(this.inicio); 
         this.arr[this.inicio] = null;
@@ -63,11 +75,15 @@ export class Deque<T> {
     removeLast(): T {
         if (this.isEmpty()) throw new Error("Deque vazio!");
 
-        const item = this.arr[this.fim] as T;      
+        if (this.capacidade == this.tamanho) {
+            this.fim = this.decrementar(this.fim)
+        }
+
+        this.fim = this.decrementar(this.fim);
+        const item = this.arr[this.fim] as T;
         this.arr[this.fim] = null;
-        this.fim = this.decrementar(this.fim);  
         this.tamanho--;
-    
+
         return item;
     }
 
@@ -85,6 +101,11 @@ export class Deque<T> {
     peekLast(): T {
         if (this.isEmpty()) throw new Error("Deque vazio!");
         
+        if (this.capacidade == this.tamanho) {
+            this.fim = this.decrementar(this.fim)
+        }
+
+        this.fim = this.decrementar(this.fim)
         const ultimo = this.arr[this.fim] as T;
 
         console.log(ultimo);
